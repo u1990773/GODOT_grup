@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://c72p5037fgfj8"]
+
+[ext_resource type="Texture2D" uid="uid://cwaspa2w73tc6" path="res://Assets/Fons/Castell/01 background.png" id="1_kfbb0"]
+[ext_resource type="Texture2D" uid="uid://biv1ctmdnil84" path="res://Assets/Fons/Castell/02 background.png" id="2_djnvg"]
+[ext_resource type="Texture2D" uid="uid://d2f61gytobhu2" path="res://Assets/Fons/Castell/03 background A.png" id="3_e33q6"]
+[ext_resource type="Texture2D" uid="uid://dbfk0wdv8y5ay" path="res://Assets/Fons/Castell/03 background B.png" id="4_ld32h"]
+[ext_resource type="Texture2D" uid="uid://vwqopkeroaw1" path="res://Assets/Fons/Castell/04 background.png" id="5_c04gk"]
+[ext_resource type="Texture2D" uid="uid://c4ll0hpxi0pku" path="res://Assets/Fons/Castell/05 background.png" id="6_vvmbq"]
+[ext_resource type="PackedScene" uid="uid://c8srm4qvd85ua" path="res://Escenes/TileMapCastell.tscn" id="7_q6fx3"]
+
+[node name="Nivell3" type="Node2D"]
+
+[node name="Fons" type="Node" parent="."]
+
+[node name="01Background" type="Sprite2D" parent="Fons"]
+position = Vector2(587.5, 333.5)
+scale = Vector2(2.75352, 1.73698)
+texture = ExtResource("1_kfbb0")
+
+[node name="02Background" type="Sprite2D" parent="Fons"]
+position = Vector2(583, 194)
+scale = Vector2(2.73239, 1)
+texture = ExtResource("2_djnvg")
+
+[node name="03BackgroundA" type="Sprite2D" parent="Fons"]
+position = Vector2(620, -300)
+scale = Vector2(2.91315, 1)
+texture = ExtResource("3_e33q6")
+
+[node name="03BackgroundB" type="Sprite2D" parent="Fons"]
+position = Vector2(406, 289)
+scale = Vector2(1.95775, 1)
+texture = ExtResource("4_ld32h")
+
+[node name="03BackgroundB2" type="Sprite2D" parent="Fons"]
+position = Vector2(1240, 291)
+scale = Vector2(1.95775, 1)
+texture = ExtResource("4_ld32h")
+
+[node name="04Background" type="Sprite2D" parent="Fons"]
+position = Vector2(203, 361)
+texture = ExtResource("5_c04gk")
+
+[node name="04Background2" type="Sprite2D" parent="Fons"]
+position = Vector2(629, 361)
+texture = ExtResource("5_c04gk")
+
+[node name="04Background3" type="Sprite2D" parent="Fons"]
+position = Vector2(1055, 361)
+texture = ExtResource("5_c04gk")
+
+[node name="05Background" type="Sprite2D" parent="Fons"]
+position = Vector2(208, 358)
+texture = ExtResource("6_vvmbq")
+
+[node name="05Background2" type="Sprite2D" parent="Fons"]
+position = Vector2(634, 358)
+texture = ExtResource("6_vvmbq")
+
+[node name="05Background3" type="Sprite2D" parent="Fons"]
+position = Vector2(1059, 358)
+texture = ExtResource("6_vvmbq")
+
+[node name="TileMapCastell" parent="." instance=ExtResource("7_q6fx3")]
