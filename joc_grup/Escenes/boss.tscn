@@ -1,0 +1,228 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgi00l33rtkqk"]
+
+[ext_resource type="Texture2D" uid="uid://7fmekcxndmnb" path="res://Assets/Boss/Necromancer_creativekind-Sheet.png" id="1_jvphl"]
+[ext_resource type="Script" path="res://Escenes/FiniteStateMachine.gd" id="2_kdvxt"]
+[ext_resource type="Script" path="res://Escenes/Idel.gd" id="3_6uqbn"]
+[ext_resource type="Script" path="res://Scripts/state.gd" id="3_plntg"]
+
+[sub_resource type="Animation" id="Animation_rpxrg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vgcvs"]
+resource_name = "death"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
+}
+
+[sub_resource type="Animation" id="Animation_x01tm"]
+resource_name = "hurt"
+length = 0.50001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [85, 86, 87, 88, 89]
+}
+
+[sub_resource type="Animation" id="Animation_1ebmy"]
+resource_name = "idel"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_bk0oi"]
+resource_name = "ranged_attack"
+length = 2.12501
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75, 1.875, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
+}
+
+[sub_resource type="Animation" id="Animation_q4run"]
+resource_name = "run"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 18, 19, 20, 21, 22, 23, 24]
+}
+
+[sub_resource type="Animation" id="Animation_vks78"]
+resource_name = "skill"
+length = 1.30001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+}
+
+[sub_resource type="Animation" id="Animation_a3d67"]
+resource_name = "summon"
+length = 1.62501
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqad6"]
+_data = {
+"RESET": SubResource("Animation_rpxrg"),
+"death": SubResource("Animation_vgcvs"),
+"hurt": SubResource("Animation_x01tm"),
+"idel": SubResource("Animation_1ebmy"),
+"ranged_attack": SubResource("Animation_bk0oi"),
+"run": SubResource("Animation_q4run"),
+"skill": SubResource("Animation_vks78"),
+"summon": SubResource("Animation_a3d67")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_303to"]
+radius = 9.0
+height = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6lwnm"]
+radius = 100.0
+
+[node name="Boss" type="CharacterBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jvphl")
+hframes = 17
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yqad6")
+}
+autoplay = "idel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 28)
+shape = SubResource("CapsuleShape2D_303to")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+offset_left = 446.0
+offset_top = 254.0
+offset_right = 646.0
+offset_bottom = 281.0
+size_flags_vertical = 8
+value = 100.0
+
+[node name="Label" type="Label" parent="UI/ProgressBar"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = -21.0
+offset_right = 122.0
+offset_bottom = 2.0
+text = "BOSS"
+
+[node name="debug" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 150.0
+offset_right = 104.0
+offset_bottom = 173.0
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+unique_name_in_owner = true
+position = Vector2(2, 27)
+shape = SubResource("CircleShape2D_6lwnm")
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
+script = ExtResource("2_kdvxt")
+
+[node name="Idel" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_6uqbn")
+
+[node name="Summon" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_plntg")
+
+[node name="Attack" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_plntg")
+
+[node name="Stagger" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_plntg")
+
+[node name="Death" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("3_plntg")
+
+[connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idel" method="_on_player_entered"]

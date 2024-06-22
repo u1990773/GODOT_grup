@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c72p5037fgfj8"]
+[gd_scene load_steps=10 format=3 uid="uid://c72p5037fgfj8"]
 
 [ext_resource type="Texture2D" uid="uid://cwaspa2w73tc6" path="res://Assets/Fons/Castell/01 background.png" id="1_kfbb0"]
 [ext_resource type="Texture2D" uid="uid://biv1ctmdnil84" path="res://Assets/Fons/Castell/02 background.png" id="2_djnvg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ll0hpxi0pku" path="res://Assets/Fons/Castell/05 background.png" id="6_vvmbq"]
 [ext_resource type="PackedScene" uid="uid://c8srm4qvd85ua" path="res://Escenes/TileMapCastell.tscn" id="7_q6fx3"]
 [ext_resource type="PackedScene" uid="uid://cc48xkstx6lo0" path="res://Escenes/Personatge.tscn" id="8_cbyoh"]
+[ext_resource type="PackedScene" uid="uid://drsq4gfcptfaf" path="res://Escenes/enemic3.tscn" id="9_s770x"]
 
 [node name="Nivell3" type="Node2D"]
 
@@ -72,4 +73,8 @@ layer_1/tile_data = PackedInt32Array(1900545, 4718594, 6, 1966081, 4718594, 7, 2
 
 [node name="persoantge" parent="." instance=ExtResource("8_cbyoh")]
 z_index = 1
-position = Vector2(66, 539)
+position = Vector2(65, 545)
+
+[node name="Enemic" parent="." instance=ExtResource("9_s770x")]
+z_index = 3
+position = Vector2(171, 561)

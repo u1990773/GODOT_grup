@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="joc_grup"
-run/main_scene="res://Escenes/nivell_2.tscn"
+run/main_scene="res://Escenes/nivell_4.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [input]

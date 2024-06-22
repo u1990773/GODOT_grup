@@ -483,7 +483,7 @@ size = Vector2(31, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cujl"]
 size = Vector2(6, 41)
 
-[node name="persoantge" type="CharacterBody2D"]
+[node name="persoantge" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_48cjj")
 
@@ -497,19 +497,19 @@ autoplay = "Idel"
 position = Vector2(0, 20)
 shape = SubResource("CircleShape2D_ppyid")
 
-[node name="AreaDamage" type="Area2D" parent="."]
+[node name="AreaDamage" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDamage"]
 shape = SubResource("CircleShape2D_4qg0u")
 
-[node name="AtackkArea" type="Area2D" parent="."]
+[node name="AtackkArea" type="Area2D" parent="." groups=["Hit"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackkArea"]
 position = Vector2(27.5, 3)
 shape = SubResource("RectangleShape2D_v1pik")
 disabled = true
 
-[node name="AtackkArea2" type="Area2D" parent="."]
+[node name="AtackkArea2" type="Area2D" parent="." groups=["Hit"]]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AtackkArea2"]
 position = Vector2(-32.5, 3)
@@ -518,14 +518,14 @@ disabled = true
 
 [node name="DefensArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DefensArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefensArea" groups=["save"]]
 position = Vector2(15, 7.5)
 shape = SubResource("RectangleShape2D_2cujl")
 disabled = true
 
 [node name="DefensArea2" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DefensArea2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DefensArea2" groups=["save"]]
 position = Vector2(-14, 7.5)
 shape = SubResource("RectangleShape2D_2cujl")
 disabled = true
